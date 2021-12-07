@@ -1,0 +1,43 @@
+import numpy as np
+import queue
+
+class Edges:
+    def __init__(self, id):
+        self.id = id
+        self.d = 0
+        self.neighbours = list()
+        
+    def add(self, kid):
+        self.neighbours.append(kid)
+        
+    def assignd(self, otherkid, d1, d2):
+        if otherkid.d == 1:
+            self.d = 2
+            d2.append(self)
+        else:
+            self.d = 1
+            d1.append(self)
+            
+    def __repr__(self):
+        return str(self.id)
+    
+class BinaryQueu:
+    def __init__(self):
+        self.queu1 = queue.Queue()
+        self.queu2 = queue.Queue()
+    
+    #Priority Queue    
+    def push1(self, x):
+        self.queu1.put(x)
+    
+    #Reserve Queue    
+    def push2(self, x):
+        self.queu1.put(x)
+    
+    def dequeue(self):
+        if self.queu1.empty():
+            return self.push2.get()
+        return self.queu2.get()
+    
+    def empty(self):
+        return self.queu1.empty() and self.queu2.empty()
