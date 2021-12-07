@@ -20,11 +20,13 @@ class Edges:
             
     def __repr__(self):
         return str(self.id)
+
     
-class BinaryQueu:
+class BinaryQueue:
     def __init__(self):
         self.queu1 = queue.Queue()
         self.queu2 = queue.Queue()
+        self.cl = False
     
     #Priority Queue    
     def push1(self, x):
@@ -36,8 +38,13 @@ class BinaryQueu:
     
     def dequeue(self):
         if self.queu1.empty():
-            return self.push2.get()
-        return self.queu2.get()
+            print('cc')
+            return self.queu2.get()
+        return self.queu1.get()
+    
+    def clear(self):
+        self.cl = True
     
     def empty(self):
-        return self.queu1.empty() and self.queu2.empty()
+        return (self.queu1.empty() and self.queu2.empty()) or self.cl
+    
