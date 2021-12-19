@@ -34,11 +34,10 @@ class BinaryQueue:
     
     #Reserve Queue    
     def push2(self, x):
-        self.queu1.put(x)
+        self.queu2.put(x)
     
     def dequeue(self):
         if self.queu1.empty():
-            print('cc')
             return self.queu2.get()
         return self.queu1.get()
     
